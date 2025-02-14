@@ -6,7 +6,7 @@ let secondDigit = value % 10
 value = (value - secondDigit) / 10
 let firstDigit = value % 10
 
-if (firstDigit === secondDigit === lastDigit) {
+if (firstDigit === secondDigit && secondDigit === lastDigit) {
     console.log (`Все цифры одинаковые`)
 }
 else {
