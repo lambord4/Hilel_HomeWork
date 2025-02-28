@@ -13,11 +13,17 @@ console.log(sum(7)); // 27
 
 */
 
-let result = 0;
 
-function sum (a) {
-    return result += a
+
+function calculateSum () {
+    let result = 0;
+    return function calculate (a) {
+         result += a
+         return result
+    }
 }
+
+let sum = calculateSum()
 
 document.write(sum(4) + "<br>");
 document.write(sum(6) + "<br>");
