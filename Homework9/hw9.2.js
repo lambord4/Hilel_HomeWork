@@ -27,4 +27,4 @@ function reversalSalarySumCalculator(obj) {
     return sum
 }
 
-document.write(`Sum of all employee salaries is ${reversalSalarySumCalculator(company)}`)
+document.write(`Sum of all employees salaries is ${reversalSalarySumCalculator(company)}`)
