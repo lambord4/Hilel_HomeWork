@@ -1,5 +1,5 @@
 const usersOrders = orders.reduce ((acc, order) => {
-    acc[order.user] = (acc[order.user] || 0) + order.items.length;
+    acc[order.user] = (acc[order.user] || 0) + 1;
     return acc;
 }, {});
 console.log(usersOrders); //Task 1 method Reduce
@@ -8,12 +8,14 @@ console.log(usersOrders); //Task 1 method Reduce
 const usersOrdersMap = new Map();
 
 for (let i = 0; i < orders.length; i ++) {
-    if (usersOrdersMap.has(orders[i].user)) {
-        usersOrdersMap.set(orders[i].user, (usersOrdersMap.get(orders[i].user) + orders[i].items.length))
-    } else {
-        usersOrdersMap.set(orders[i].user, orders[i].items.length);
+    const currentUser = orders[i].user;
+    let currentValue = 0;
+    if (usersOrdersMap.has(currentUser)) {
+      currentValue += usersOrdersMap.get(currentUser);
     }
-}
+  
+    usersOrdersMap.set(currentUser, currentValue + 1);
+  }
 console.log(usersOrdersMap);  //Task 1 method Map
 
 
