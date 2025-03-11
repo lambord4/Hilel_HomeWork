@@ -5,7 +5,6 @@
 */
 
 let number = Math.floor(Math.random() * 10 + 1);
-document.write(number);
 
 const img = document.createElement('img');
 img.src = `./img/${number}.jpg`;
