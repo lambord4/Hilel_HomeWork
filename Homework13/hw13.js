@@ -6,11 +6,8 @@ document.querySelector('.btn').addEventListener('click', () => {
     const tel = formElements.tel.value.trim();
     const mail = formElements.mail.value.trim();
 
-    console.log({ name, message, tel, mail });
-
     let isValid = true;
 
-    // Универсальная функция валидации
     function validateInput(inputElement, errorClass, errorMessage, condition = () => inputElement.value.trim()) {
         let errorElement = document.querySelector(`.${errorClass}`);
 
@@ -33,13 +30,10 @@ document.querySelector('.btn').addEventListener('click', () => {
         }
     }
 
-    // Валидация имени
     validateInput(formElements.name, 'name-error', 'Name cannot be empty');
 
-    // Валидация сообщения (длина должна быть не менее 5 символов)
     validateInput(formElements.message, 'message-error', 'Message must be at least 5 characters!', () => message.length >= 5);
 
-    // Валидация телефона (+380 и 9 цифр после)
     let regExpTel = /^\+380\d{9}$/;
     validateInput(
         formElements.tel,
@@ -48,7 +42,6 @@ document.querySelector('.btn').addEventListener('click', () => {
         () => regExpTel.test(tel)
     );
 
-    // Валидация email (наличие @ и .)
     let regExpMail = /@.*\./;
     validateInput(
         formElements.mail,
@@ -57,7 +50,6 @@ document.querySelector('.btn').addEventListener('click', () => {
         () => regExpMail.test(mail)
     );
 
-    // Если все поля прошли валидацию, очищаем форму
     if (isValid) {
         formElements.reset();
     }
