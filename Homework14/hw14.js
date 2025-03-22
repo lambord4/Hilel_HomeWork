@@ -4,6 +4,7 @@ const next = document.querySelector('.next');
 const dotsContainer = document.querySelector('.dots');
 
 let current = 0;
+const Max = 4
 
 slides.forEach((slide, index) => {             //Создал дотс с индексами
     const dot = document.createElement('span');
@@ -22,7 +23,7 @@ function currentChecker (current) {            //Создал функцию д�
         prev.style.visibility = 'visible';
     }
     
-    if ( current === 4) {
+    if ( current === Max) {
         next.style.visibility = 'hidden';
     } else {
         next.style.visibility = 'visible';
