@@ -10,6 +10,8 @@ function showCategories() {
   });
 }
 
+let currentProduct = null; 
+
 function showProducts(products, categoryId) {
   const parent = document.querySelector('.products > div');
   parent.innerHTML = '';
@@ -49,6 +51,7 @@ function showProductInfo (productId) {
     let selectedProduct ;
     for (const category of categories) {
         selectedProduct = category.products.find(product => product.id === productId);
+        currentProduct = selectedProduct;
         if (selectedProduct) break;
     };
     
@@ -230,15 +233,21 @@ document.querySelector('.products').addEventListener('click', (event) => {
             alert('Choose your quantity of items!')
             return;
           };
+          const today = new Date();
+          const formattedDate = today.toLocaleDateString();
 
-          console.dir({
-            name,
-            city,
-            npAdress,
-            paymentMethod,
-            quantityInfo
-        });
+          const productInfo = {
+            date: formattedDate,
+            name: currentProduct.name,
+            price: currentProduct.price
+          };
 
+          let savedProducts = JSON.parse(localStorage.getItem('selectedProduct')) || [];
+
+          savedProducts.push(productInfo);
+
+          localStorage.setItem('selectedProduct', JSON.stringify(savedProducts));
+    
         const resultName = document.createElement('p');
         resultName.textContent = `Your name is: ${name}`;
         parent.appendChild(resultName);
@@ -258,6 +267,21 @@ document.querySelector('.products').addEventListener('click', (event) => {
         const resultQuantity = document.createElement('p');
         resultQuantity.textContent = `Your quantity of item is: ${quantityInfo}`;
         parent.appendChild(resultQuantity);
+
+
+        const userInfo = {
+          username: name,
+          userCity: city,
+          userNp: npAdress,
+          userPayment: paymentMethod,
+          userQuantity: quantityInfo
+        }
+
+        let savedUser = JSON.parse(localStorage.getItem('userInfo')) || [];
+
+          savedUser.push(userInfo);
+
+          localStorage.setItem('userInfo', JSON.stringify(savedUser));
       });
   });    
 });

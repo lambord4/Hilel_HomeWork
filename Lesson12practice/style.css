@@ -91,3 +91,16 @@ h2 {
   text-decoration: none;
   font-weight: 400;
 }
+
+.order-row {
+  display: flex;
+  align-items: center;
+}
+
+.delete-btn {
+  margin-left: 30px;
+  width: 130px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: rgb(249, 133, 133);
+}
