@@ -1,9 +1,9 @@
-const myPerson = new Person ( 'Oleg' , 18);
-const myPerson2 = new Person ( 'Valya', 23)
-const myApartment = new Apartment (666, 4, [myPerson, myPerson2]);
+// const myPerson = new Person ( 'Oleg' , 18);
+// const myPerson2 = new Person ( 'Valya', 23)
+// const myApartment = new Apartment (666, 4, [myPerson, myPerson2]);
 
 
-console.log(myApartment.getInfo())
+// console.log(myApartment.getInfo())
 
 
 document.querySelector('.btn').addEventListener('click', () => {
@@ -17,5 +17,5 @@ document.querySelector('.btn').addEventListener('click', () => {
     myHouse.getInfo()
     document.body.innerHTML += `
     Your house has ${myHouse.apartmentAmount} apartments and each 
-    apartment has ${myHouse.peopleInApartmentAmount} peopel in it`
+    apartment has ${myHouse.peopleInApartmentAmount} people in it`
 })
