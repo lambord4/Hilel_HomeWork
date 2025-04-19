@@ -33,7 +33,7 @@ const images = [
     showSlide(currentIndex);
   }
 
-  let sliderTimer = setInterval(nextSlide, 5000);
+  let sliderTimer = setInterval(nextSlide, 3000);
   
   document.getElementById("next").addEventListener("click", () => {
     nextSlide();
@@ -46,7 +46,7 @@ const images = [
   
   function resetSlider() {
     clearInterval(sliderTimer);
-    sliderTimer = setInterval(nextSlide, 5000);
+    sliderTimer = setInterval(nextSlide, 3000);
   }
   
   showSlide(currentIndex);
