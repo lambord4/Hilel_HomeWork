@@ -1,0 +1,24 @@
+{
+  "name": "homework",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/lambord4/Hilel_HomeWork#readme",
+  "bugs": {
+    "url": "https://github.com/lambord4/Hilel_HomeWork/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lambord4/Hilel_HomeWork.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "hw20.1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.5",
+    "moment": "^2.30.1"
+  }
+}
