@@ -19,13 +19,30 @@ function getNextRel(data, rel) {
 }
 
 function fetchFull(parent, rel, numRef, setNum, setRel) {
-    fetch(rel)
+    fetch(rel())
         .then(response => response.json())
         .then(data => {
-            const newNum = displayInfo(parent, data, numRef);
+            const newNum = displayInfo(parent, data, numRef());
             setNum(newNum);
             const newRel = getNextRel(data, rel);
             setRel(newRel);
             console.log(data)
         });
+}
+
+function loadMoreBtn(wrapper, parent, getRel, numRef, setNum, setRel, message) {
+    if (!wrapper.querySelector('.load_more')) {
+        const loadBtn = document.createElement('button');
+        loadBtn.textContent = `Load more`;
+        loadBtn.classList.add('load_more');
+        wrapper.appendChild(loadBtn);
+
+        loadBtn.addEventListener('click', () => {
+            if (getRel() !== null) {
+                fetchFull(parent, getRel, numRef, setNum, setRel);
+            } else {
+                alert(message);
+            }
+        });
+    }
 }
