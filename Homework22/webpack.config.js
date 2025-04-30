@@ -47,4 +47,11 @@ export default {
       new CssMinimizerPlugin() // ← минификация CSS
     ],
   },
+  devServer: {
+    static: './dist',
+    watchFiles: ['./js/**/*', './styles/**/*', './dist/index.html'],
+    open: true,       // открывает браузер автоматически
+    hot: true,        // "горячая" перезагрузка
+    port: 3000
+  }
 };
