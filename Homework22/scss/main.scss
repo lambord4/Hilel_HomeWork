@@ -1,0 +1,100 @@
+// Переменные
+$bg-body: #1e1e2f;
+$color-text: #f5f5f5;
+$card-bg: #2c2c40;
+$card-border: #3d3d5c;
+$shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+$btn-main-bg: #6a5acd;
+$btn-main-hover: #7b6ff2;
+$btn-load-bg: #4444aa;
+$btn-load-hover: #6666ff;
+$info-bg: #383857;
+
+body {
+  display: flex;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: $bg-body;
+  color: $color-text;
+  margin: 0;
+  padding: 2rem;
+
+  .wrapper {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    .column {
+      width: 25%;
+      margin-right: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: linear-gradient(145deg, $card-bg, #1f1f35);
+      background-color: $card-bg;
+      border: 1px solid $card-border;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: $shadow;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      .btn_main {
+        width: 100%;
+        padding: 10px 0;
+        background-color: $btn-main-bg;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 22px;
+        cursor: pointer;
+        margin-bottom: 1rem;
+        transition: background-color 0.3s ease;
+        font-weight: bold;
+
+        &:hover {
+          background-color: $btn-main-hover;
+          text-decoration: underline;
+          color: #b3b2b5;
+        }
+      }
+
+      .info {
+        background-color: $info-bg;
+        padding: 5px 18px;
+        border-radius: 8px;
+        min-height: 100px;
+        font-size: 0.95rem;
+        line-height: 1.4;
+        margin-bottom: 1rem;
+        overflow-y: auto;
+      }
+
+      .btn_wrapper {
+        margin-top: 10px;
+        text-align: center;
+
+        .load_more {
+          padding: 8px 16px;
+          background-color: $btn-load-bg;
+          color: white;
+          border: none;
+          border-radius: 25px;
+          font-size: 0.9rem;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: $btn-load-hover;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
