@@ -1,3 +1,31 @@
+/* === ТЕМЫ === */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --button-bg: #37495b;
+  --button-hover: #0056b3;
+  --table-head-bg: #007bff;
+  --table-row-hover: #f0f0f0;
+  --border-color: #ccc;
+}
+
+.dark-theme {
+  --bg-color: #1e1e1e;
+  --text-color: #f0f0f0;
+  --button-bg: #444c5e;
+  --button-hover: #2c4d90;
+  --table-head-bg: #2c4d90;
+  --table-row-hover: #333333;
+  --border-color: #555;
+}
+
+/* === ОСНОВНОЕ === */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -8,7 +36,7 @@
 .button {
   border-radius: 30px;
   padding: 0.5rem 1rem;
-  background-color: #37495b;
+  background-color: var(--button-bg);
   color: white;
   border: none;
   cursor: pointer;
@@ -16,14 +44,13 @@
 }
 
 .button:hover {
-  background-color: #0056b3;
+  background-color: var(--button-hover);
 }
-
 
 .contacts-list {
   margin-top: 1.5rem;
   padding: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   text-align: center;
 }
@@ -33,24 +60,23 @@ table {
   margin-top: 1.5rem;
   border-collapse: collapse;
   font-family: Arial, sans-serif;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
-  /* background-color: white; */
 }
 
 thead {
-  background-color: #007bff;
+  background-color: var(--table-head-bg);
   color: white;
 }
 
 th, td {
   padding: 12px 16px;
   text-align: left;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
 }
 
 tr:hover {
-  background-color: #7e7676;
+  background-color: var(--table-row-hover);
 }
 
 .wrapper {
@@ -58,6 +84,7 @@ tr:hover {
   padding: 1.5rem;
   text-align: center;
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -68,12 +95,15 @@ input {
   padding: 0.5rem;
   font-size: 1rem;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: var(--table-head-bg);
   box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
 }
 
@@ -109,10 +139,9 @@ label {
 
 .input-group input:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: var(--table-head-bg);
   box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
 }
-
 
 .error {
   border-color: red;

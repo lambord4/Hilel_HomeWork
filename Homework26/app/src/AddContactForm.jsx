@@ -1,10 +1,10 @@
-function AddContactForm({ formData, onChange, onSave, onCancel, formErrors }) {
+function AddContactForm({ formData, onChange, onSave, onCancel, formErrors, t }) {
     return (
       <div className='wrapper'>
-        <h2>Добавить новый контакт</h2>
+        <h2>{t('addNewContact')}</h2>
         <form onSubmit={(e) => e.preventDefault()}>
           <div className="form-row">
-            <label htmlFor="name">Имя:</label>
+            <label htmlFor="name">{t('name')}:</label>
             <div className="input-group">
               <input
                 id="name"
@@ -17,7 +17,7 @@ function AddContactForm({ formData, onChange, onSave, onCancel, formErrors }) {
           </div>
   
           <div className="form-row">
-            <label htmlFor="surname">Фамилия:</label>
+            <label htmlFor="surname">{t('surname')}:</label>
             <div className="input-group">
               <input
                 id="surname"
@@ -30,7 +30,7 @@ function AddContactForm({ formData, onChange, onSave, onCancel, formErrors }) {
           </div>
   
           <div className="form-row">
-            <label htmlFor="tel">Номер:</label>
+            <label htmlFor="tel">{t('phone')}:</label>
             <div className="input-group">
               <input
                 id="tel"
@@ -43,8 +43,8 @@ function AddContactForm({ formData, onChange, onSave, onCancel, formErrors }) {
           </div>
         </form>
   
-        <button className='button' style={{ marginRight: '1.5rem', width: '120px' }} onClick={onSave}>Сохранить</button>
-        <button className='button' style={{ width: '120px' }} onClick={onCancel}>Отмена</button>
+        <button className='button' style={{ marginRight: '1.5rem', width: '120px' }} onClick={onSave}>{t('save')}</button>
+        <button className='button' style={{ width: '120px' }} onClick={onCancel}>{t('cancel')}</button>
       </div>
     );
   }

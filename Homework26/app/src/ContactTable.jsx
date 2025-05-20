@@ -1,31 +1,40 @@
-function ContactTable({ contacts, onDelete, onEdit }) {
-    return (
-        
-      <table>
-        <thead>
-          <tr>
-            <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Номер</th>
-            <th>Действия</th>
+import { useNavigate } from 'react-router';
+
+function ContactTable({ contacts, onDelete, onEdit, t }) {
+  const navigate = useNavigate();
+
+  const handleEditClick = (contact) => {
+    onEdit(contact);          
+    navigate('/newcontact');  
+  };
+
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>{t('name')}</th>
+          <th>{t('surname')}</th>
+          <th>{t('phone')}</th>
+          <th>{t('actions')}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {contacts.map(contact => (
+          <tr key={contact.id}>
+            <td>{contact.name}</td>
+            <td>{contact.surname}</td>
+            <td>{contact.tel}</td>
+            <td>
+              <button className="button" onClick={() => onDelete(contact.id)}>{t('delete')}</button>
+              <button className="button" onClick={() => handleEditClick(contact)}>✏️</button>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          {contacts.map(contact => (
-            <tr key={contact.id}>
-              <td>{contact.name}</td>
-              <td>{contact.surname}</td>
-              <td>{contact.tel}</td>
-              <td>
-                <button className='button' onClick={() => onDelete(contact.id)}>Удалить</button>
-                <button className='button' onClick={() => onEdit(contact)}>✏️</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    );
-  }
-  
-  export default ContactTable;
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
+export default ContactTable;
+
   
