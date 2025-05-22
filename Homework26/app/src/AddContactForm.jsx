@@ -1,4 +1,6 @@
-function AddContactForm({ formData, onChange, onSave, onCancel, formErrors, t }) {
+import { useTranslation } from './TranslationContext';
+function AddContactForm({ formData, onChange, onSave, onCancel, formErrors}) {
+  const t = useTranslation();
     return (
       <div className='wrapper'>
         <h2>{t('addNewContact')}</h2>

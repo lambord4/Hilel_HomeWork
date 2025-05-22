@@ -1,6 +1,7 @@
 import AddContactForm from '../AddContactForm';
 
-function AddNewContactPage({ formData, formErrors, onChange, onSave, onCancel, t }) {
+
+function AddNewContactPage({ formData, formErrors, onChange, onSave, onCancel }) {
   return (
     <div className="add-contact-page">
       <AddContactForm
@@ -9,7 +10,6 @@ function AddNewContactPage({ formData, formErrors, onChange, onSave, onCancel, t
         onChange={onChange}
         onSave={onSave}
         onCancel={onCancel}
-        t={t}
       />
     </div>
   );

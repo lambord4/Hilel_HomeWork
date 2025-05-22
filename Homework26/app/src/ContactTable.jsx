@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router';
+import { useTranslation } from './TranslationContext';
 
-function ContactTable({ contacts, onDelete, onEdit, t }) {
+
+function ContactTable({ contacts, onDelete, onEdit }) {
   const navigate = useNavigate();
-
+  const t = useTranslation();
   const handleEditClick = (contact) => {
     onEdit(contact);          
     navigate('/newcontact');  

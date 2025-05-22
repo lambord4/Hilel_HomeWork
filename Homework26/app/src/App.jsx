@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes, Link} from 'react-router'
 import './App.css';
 import contactsData from './ContactsData';
@@ -6,8 +6,21 @@ import handleSaveContact from './formHandlers';
 import MainPage from './pages/MainPage';
 import ContactsPage from './pages/ContactsPage';
 import AddNewContactPage from './pages/AddNewContactPage'
-import { useEffect } from 'react';
 import translations from './Translations';
+import { TranslationContext } from './TranslationContext';
+
+
+const initialFormData = {
+  name: '',
+  surname: '',
+  tel: ''
+};
+
+const initialFormErrors = {
+  name: '',
+  surname: '',
+  tel: ''
+};
 
 function App() {
   const [language, setLanguage] = useState('ru');
@@ -28,17 +41,9 @@ function App() {
 
   const [contacts, setContacts] = useState(contactsData);
 
-  const [formData, setFormData] = useState({
-    name: '',
-    surname: '',
-    tel: ''
-  });
+  const [formData, setFormData] = useState(initialFormData);
   
-  const [formErrors, setFormErrors] = useState({
-    name: '',
-    surname: '',
-    tel: ''
-  });
+  const [formErrors, setFormErrors] = useState(initialFormErrors);
 
   const handleDelete = (id) => {
     setContacts(prev => prev.filter(contact => contact.id !== id));
@@ -72,7 +77,7 @@ function App() {
   
 
   const handleCancel = () => {
-    setFormData({ name: '', surname: '', tel: '' });
+    setFormData(initialFormData);
     setEditingContactId(null);
   };
 
@@ -83,6 +88,7 @@ function App() {
       <button className="button" onClick={toggleTheme}>
         {isDark ? t('lightTheme') : t('darkTheme')}
       </button>
+      <TranslationContext.Provider value={t}>
       <BrowserRouter>
         <Link to="/">
           <button className='button' style={{ marginBottom: '2rem' }}>{t('home')}</button>
@@ -96,12 +102,12 @@ function App() {
           </Link>
         </nav>
         <Routes>
-          <Route path="/" element={<MainPage t={t}/> }/>
+          <Route path="/" element={<MainPage /> }/>
           <Route
             path="/contactslist"
             element={
               <ContactsPage
-                t={t}
+                
                 contacts={contacts}
                 onDelete={handleDelete}
                 onEdit={handleEdit}
@@ -112,7 +118,7 @@ function App() {
             path="/newcontact"
             element={
               <AddNewContactPage
-                t={t}
+                
                 formData={formData}
                 formErrors={formErrors}
                 onChange={setFormData}
@@ -124,6 +130,7 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
+      </TranslationContext.Provider>
     </>
   );
 }
