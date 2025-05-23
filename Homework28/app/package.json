@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://lambord4.github.io/Homework28/app",
+  "homepage": "https://lambord4.github.io/Hilel_HomeWork/Homework28/app",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

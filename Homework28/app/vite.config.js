@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Homework28/app/',
+  base: '/Hilel_HomeWork/Homework28/app/',
 })
