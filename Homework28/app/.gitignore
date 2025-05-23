@@ -7,29 +7,18 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Dependency directories
-node_modules/
-
-# Build output
-dist/
-dist-ssr/
+node_modules
+dist
+dist-ssr
 *.local
 
 # Editor directories and files
-.vscode/
+.vscode/*
 !.vscode/extensions.json
-.idea/
+.idea
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-
-# Mac system files
-.AppleDouble
-.LSOverride
-
-# Optional: dotenv
-.env.local
-.env.*.local
