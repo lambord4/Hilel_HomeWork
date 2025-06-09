@@ -5,44 +5,44 @@ const initialState = {
 };
 
 const todoSlice = createSlice({
-  name: 'todo',
+  name: 'todos',
   initialState,
   reducers: {
-    загрузить(state, action) {
+    load(state, action) {
       state.todos = action.payload;
     },
-    добавить(state, action) {
+    add(state, action) {
       state.todos.push({
         id: nanoid(),
         text: action.payload,
         completed: false,
       });
     },
-    удалить(state, action) {
+    remove(state, action) {
       state.todos = state.todos.filter(todo => todo.id !== action.payload);
     },
-    отметить(state, action) {
+    toggle(state, action) {
       const todo = state.todos.find(todo => todo.id === action.payload);
       if (todo) todo.completed = !todo.completed;
     },
-    редактировать(state, action) {
+    edit(state, action) {
       const { id, newText } = action.payload;
       const todo = state.todos.find(todo => todo.id === id);
       if (todo) todo.text = newText;
     },
-    очиститьЗавершённые(state) {
+    clearCompleted(state) {
       state.todos = state.todos.filter(todo => !todo.completed);
     },
   },
 });
 
 export const {
-  загрузить,
-  добавить,
-  удалить,
-  отметить,
-  редактировать,
-  очиститьЗавершённые,
+  load,
+  add,
+  remove,
+  toggle,
+  edit,
+  clearCompleted,
 } = todoSlice.actions;
 
 export default todoSlice.reducer;
