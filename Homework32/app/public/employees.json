@@ -1,0 +1,12 @@
+[
+  { "id": 1, "name": "Иван Иванов", "position": "Frontend", "departmentId": 1 },
+  { "id": 2, "name": "Анна Смирнова", "position": "Backend", "departmentId": 2 },
+  { "id": 3, "name": "Петр Козлов", "position": "QA", "departmentId": 1 },
+  { "id": 4, "name": "Елена Алексеева", "position": "Project Manager", "departmentId": 3 },
+  { "id": 5, "name": "Максим Орлов", "position": "DevOps", "departmentId": 2 },
+  { "id": 6, "name": "Дарья Белова", "position": "UX Designer", "departmentId": 1 },
+  { "id": 7, "name": "Виктор Сергеев", "position": "Database Admin", "departmentId": 2 },
+  { "id": 8, "name": "Наталья Литвинова", "position": "Business Analyst", "departmentId": 3 },
+  { "id": 9, "name": "Артем Павлов", "position": "Mobile Developer", "departmentId": 3 },
+  { "id": 10, "name": "Марина Крылова", "position": "Tech Writer", "departmentId": 1 }
+]
