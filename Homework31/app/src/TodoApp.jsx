@@ -8,6 +8,7 @@ import {
   edit,
   clearCompleted,
 } from './todoSlice';
+import './App.css'
 
 export default function TodoApp() {
   const todos = useSelector(state => state.todo.todos);
@@ -43,7 +44,7 @@ export default function TodoApp() {
 
   return (
     <div>
-      <h2>Todo List</h2>
+      <h1>Todo List</h1>
       <input
         type="text"
         value={input}
